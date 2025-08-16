@@ -2,6 +2,12 @@
 
 This project is a React-based flow editor for building and visualizing pipelines, with a FastAPI backend for storing and retrieving pipeline data.
 
+## Demo
+
+You can watch a demo of the Pipeline Flow Editor below:
+
+[![Demo Video](frontend/public/demo.png)](https://vimeo.com/1110545447?share=copy)
+
 ## Prerequisites
 
 - Node.js (v18+ recommended)
@@ -55,12 +61,6 @@ The frontend will run at [http://localhost:3000](http://localhost:3000).
 - Connect nodes visually.
 - Click "Submit" to save the pipeline to the backend.
 - The backend stores nodes and edges in `db.json` and provides endpoints to fetch or view the pipeline.
-
-## Demo
-
-You can watch a demo of the Pipeline Flow Editor below:
-
-[![Demo Video](frontend/public/demo.png)](https://vimeo.com/1110545447?share=copy)
 
 ## API Endpoints
 
