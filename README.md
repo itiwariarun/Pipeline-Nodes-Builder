@@ -61,13 +61,17 @@ The frontend will run at [http://localhost:3000](http://localhost:3000).
 You can watch a demo of the Pipeline Flow Editor below:
 
 ```html
-<video src="frontend/public/demo.webm" controls width="600"></video>
+<video
+  src="https://raw.githubusercontent.com/itiwariarun/Pipeline-Nodes-Builder/master/frontend/public/demo.webm"
+  controls
+  width="600"
+></video>
 ```
 
 Or, if using Markdown image syntax (for GitHub rendering):
 
 ```markdown
-![Demo Video](frontend/public/demo.webm)
+![Demo Video](https://raw.githubusercontent.com/itiwariarun/Pipeline-Nodes-Builder/master/frontend/public/demo.webm)
 ```
 
 ## API Endpoints
