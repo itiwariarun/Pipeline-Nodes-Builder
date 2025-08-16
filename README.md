@@ -61,17 +61,22 @@ The frontend will run at [http://localhost:3000](http://localhost:3000).
 You can watch a demo of the Pipeline Flow Editor below:
 
 ```html
-<video
-  src="https://raw.githubusercontent.com/itiwariarun/Pipeline-Nodes-Builder/master/frontend/public/demo.webm"
-  controls
-  width="600"
-></video>
+<iframe
+  width="720"
+  height="600"
+  src="https://app.screencastify.com/watch/g2xq3h5h5xbvkn6vig40/embed"
+  title="My Videos - Screencastify - Screencastify - August 16, 2025 5:00 PM.webm"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
 ```
 
 Or, if using Markdown image syntax (for GitHub rendering):
 
 ```markdown
-![Demo Video](https://raw.githubusercontent.com/itiwariarun/Pipeline-Nodes-Builder/master/frontend/public/demo.webm)
+![Demo Video](https://app.screencastify.com/watch/g2xq3h5h5xbvkn6vig40)
 ```
 
 ## API Endpoints
