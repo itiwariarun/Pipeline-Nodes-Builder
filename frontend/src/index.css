@@ -1,0 +1,189 @@
+/* Import Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply box-sizing to all elements */
+* {
+  @apply box-border;
+}
+
+/* Style the body with gradient background and font settings */
+body {
+  overflow: hidden;
+  @apply bg-gradient-to-bl from-gray-950 to-gray-900 min-h-screen w-screen m-0 overflow-x-hidden antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+/* Set font for code elements */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Style file input selector button */
+input::file-selector-button {
+  @apply px-2 py-1 text-gray-100 bg-gray-800 border border-gray-600 rounded-l-md;
+}
+
+/* React Flow pane background and dot color variables */
+.react-flow__pane {
+  --rf-background-color: #f0f0f0;
+  --rf-dot-color: #a0a0a0;
+}
+
+/* React Flow main container styles and variables */
+.react-flow {
+  --bg-color: rgb(0, 0, 0);
+  --text-color: rgb(243, 244, 246);
+  --node-border-radius: 10px;
+  --node-box-shadow: 10px 0 15px rgba(42, 138, 246, 0.3),
+    -10px 0 15px rgba(43, 16, 24, 0.3);
+  @apply bg-gradient-to-bl from-gray-950 to-gray-900 text-cyan-100;
+}
+
+/* Turbo node styles */
+.react-flow__node-turbo {
+  @apply rounded-[var(--node-border-radius)] flex h-[70px] min-w-[150px] font-medium tracking-[-0.2px] shadow-[var(--node-box-shadow)];
+  font-family: "Fira Mono", Monospace;
+}
+
+/* Turbo node wrapper styles */
+.react-flow__node-turbo .wrapper {
+  @apply overflow-hidden flex relative rounded-[var(--node-border-radius)] grow p-0.5;
+}
+
+/* Gradient background for turbo node */
+.gradient:before {
+  @apply -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 content-[''] rounded-full bg-[conic-gradient(from_-160deg_at_50%_50%_#54abf3_0deg_#6e53ba_120deg_#2a8af6_240deg_#54abf3_360deg)] absolute w-[calc(100%_*_1.41421356237)] pb-[calc(100%_*_1.41421356237)];
+}
+
+/* Spinner animation for selected turbo node */
+.react-flow__node-turbo.selected .wrapper.gradient:before {
+  @apply animate-[spinner_4s_linear_infinite] -translate-x-2/4 -translate-y-2/4 rotate-0 z-[-1] left-2/4 content-[''] bg-[conic-gradient(from_-160deg_at_50%_50%_#54abf3_0deg_#6e53ba_120deg_#2a8af6_240deg_#54abf3_360deg)];
+
+}
+
+/* Keyframes for spinner animation */
+@keyframes spinner {
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Inner content styles for turbo node */
+.react-flow__node-turbo .inner {
+  @apply rounded-[var(--node-border-radius)] flex flex-col justify-center grow relative px-5 py-4;
+}
+
+/* Icon styles for turbo node */
+.react-flow__node-turbo .icon {
+  @apply mr-2;
+}
+
+/* Body styles for turbo node */
+.react-flow__node-turbo .body {
+  @apply flex;
+}
+
+/* Title styles for turbo node */
+.react-flow__node-turbo .title {
+  @apply text-cyan-500 font-semibold text-base mb-0.5 leading-none;
+}
+
+/* Subtitle styles for turbo node */
+.react-flow__node-turbo .subtitle {
+  @apply text-sm text-cyan-600;
+}
+
+/* Cloud icon styles for turbo node */
+.react-flow__node-turbo .cloud {
+  @apply w-8 rounded-full aspect-square z-[1] shadow-[var(--node-box-shadow)] p-0.5 flex overflow-hidden origin-[center_center] transform translate-x-1/2 translate-y-1/2 top-0 right-0 absolute;
+}
+
+/* Inner cloud styles */
+.react-flow__node-turbo .cloud div {
+  @apply flex-grow rounded-full flex items-center justify-center relative bg-[var(--bg-color)] shadow-[10px_0_15px_rgba(42_138_246_0.3)_-10px_0_15px_rgba(43_16_24_0.3)];
+}
+
+/* Remove outline on node focus */
+.react-flow__node:focus {
+  @apply outline-none
+}
+
+/* Edge path styles */
+.react-flow__edge .react-flow__edge-path {
+  @apply stroke-[url(#edge-gradient)] stroke-2;
+  stroke-opacity: 0.75;
+}
+
+/* Controls button styles */
+.react-flow__controls button {
+  @apply border border-cyan-500 border-b-[0] text-cyan-100 text-sm bg-[var(--bg-color)] py-1.5 px-1.5;
+}
+
+/* Controls button hover styles */
+.react-flow__controls button:hover {
+  @apply bg-cyan-950;
+}
+
+/* First and last controls button styles */
+.react-flow__controls button:first-child {
+  @apply rounded-t-md;
+}
+
+.react-flow__controls button:last-child {
+  @apply border-b border-cyan-600 rounded-b-md pb-1;
+
+}
+
+/* Controls button icon styles */
+.react-flow__controls button path {
+  @apply fill-cyan-500;
+}
+
+/* Attribution styles */
+.react-flow__attribution {
+  @apply bg-cyan-950/20
+}
+
+.react-flow__attribution a {
+  @apply text-cyan-500
+}
+
+/* Minimap mask styles */
+.react-flow__minimap-mask {
+  @apply rounded-lg fill-cyan-950;
+}
+
+/* Minimap panel styles */
+.react-flow__panel.react-flow__minimap.bottom.right {
+  @apply bg-transparent;
+}
+
+/* Minimap SVG styles */
+.react-flow__panel.react-flow__minimap.bottom.right > svg {
+  @apply rounded-lg bg-slate-950;
+}
+
+/* Minimap node styles */
+.react-flow__minimap-node {
+  @apply truncate rounded-lg fill-cyan-500;
+}
+
+/* Handle styles for nodes */
+.react-flow__handle {
+  @apply !h-2.5 !w-2.5 !min-w-2.5 !min-h-2.5 !rounded-full !bg-cyan-100 border !border-cyan-600;
+}
+
+/* Right handle position */
+.react-flow__handle-right {
+  @apply !-right-[3px];
+}
+
+/* Left handle position */
+.react-flow__handle-left {
+  @apply !-left-[3px];
+}
