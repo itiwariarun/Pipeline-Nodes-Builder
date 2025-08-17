@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Position, useReactFlow } from "reactflow";
 import { AbstractNode } from "./abstractNode";
+import { fileToBase64 } from "../lib/helper";
 /**
  * NumberNode
  * Node for numeric input.
@@ -179,16 +180,6 @@ export const FileNode = ({ id, data }) => {
   const { setNodes } = useReactFlow();
   const [file, setFile] = useState(data?.file || null);
 
-  // Helper: convert file to Base64
-  const fileToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
   // Update node data when file changes
   useEffect(() => {
     if (!file) return;
@@ -196,7 +187,9 @@ export const FileNode = ({ id, data }) => {
       fileToBase64(file).then((base64) => {
         setNodes((nds) =>
           nds.map((node) =>
-            node.id === id ? { ...node, data: { ...node.data, file: base64 } } : node
+            node.id === id
+              ? { ...node, data: { ...node.data, file: base64 } }
+              : node
           )
         );
       });

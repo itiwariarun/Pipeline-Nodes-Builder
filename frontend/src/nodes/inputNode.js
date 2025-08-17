@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Position, useReactFlow } from "reactflow";
 import { AbstractNode } from "./abstractNode";
+import { fileToBase64 } from "../lib/helper";
 /**
  * InputNode
  * Node for text or file input.
@@ -17,6 +18,28 @@ export const InputNode = ({ id, data }) => {
   );
   const [inputType, setInputType] = useState(data?.inputType || "Text");
   const [file, setFile] = useState(data?.file || null);
+  // Update node data when file changes
+  useEffect(() => {
+    if (!file) return;
+    if (file instanceof File) {
+      fileToBase64(file).then((base64) => {
+        setNodes((nds) =>
+          nds.map((node) =>
+            node.id === id
+              ? { ...node, data: { ...node.data, file: base64 } }
+              : node
+          )
+        );
+      });
+    } else {
+      // file is already base64 (from backend)
+      setNodes((nds) =>
+        nds.map((node) =>
+          node.id === id ? { ...node, data: { ...node.data, file } } : node
+        )
+      );
+    }
+  }, [file, id, setNodes]);
   // Update node data when any field changes
 
   useEffect(() => {

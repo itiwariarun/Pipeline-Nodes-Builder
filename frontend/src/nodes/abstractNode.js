@@ -59,13 +59,14 @@ export const AbstractNode = ({ id, label, fields = [], handles = [] }) => {
                 <input
                   type="file"
                   className="block w-full h-8 text-sm placeholder-gray-400 bg-white border border-gray-600 rounded-lg cursor-pointer text-gray-950 focus:outline-none focus:border-cyan-600"
-                      onChange={(e) => {
-        const selectedFile = e.target.files[0];
-        f.onChange(selectedFile);
-      }}
-    />
-    {f.value && <p className="text-xs">Selected file: {f.value.name}</p>
-                }
+                  onChange={(e) => {
+                    const selectedFile = e.target.files[0];
+                    f.onChange(selectedFile);
+                  }}
+                />
+                {f.value && (
+                  <p className="text-xs">Selected file: {f.value.name}</p>
+                )}
               </>
             ) : f.inputType === "select" ? (
               <select
@@ -98,6 +99,13 @@ export const AbstractNode = ({ id, label, fields = [], handles = [] }) => {
                 value={f.value}
                 onChange={(e) => f.onChange(e.target.value)}
                 className="w-12 h-8 p-0 border-none cursor-pointer"
+              />
+            ) : f.inputType === "number" ? (
+              <input
+                type="number"
+                value={f.value}
+                onChange={(e) => f.onChange(Number(e.target.value))}
+                className="block w-full rounded-md bg-white px-2 pt-1 pb-1.5 h-8 text-gray-950 outline-1 text-xs -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600"
               />
             ) : (
               <input
